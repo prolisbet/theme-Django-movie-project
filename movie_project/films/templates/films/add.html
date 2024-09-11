@@ -1,0 +1,46 @@
+{% extends 'films/layout.html' %}
+
+{% block title %}
+    <title>Добавить фильм</title>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ caption }}</h1>
+    <h5> — поделитесь впечатлениями с единомышленниками!</h5>
+    <hr class="bg-light">
+    <div>
+        <h2>Расскажите про новый фильм</h2>
+        <form method="post" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.title.id_for_label }}">Название</label>
+                {{ form.title }}
+                {% if form.title.errors %}
+                    <div class="text-danger">
+                        {{ form.title.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Описание</label>
+                {{ form.description }}
+                {% if form.description.errors %}
+                    <div class="text-danger">
+                        {{ form.description.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.review.id_for_label }}">Отзыв</label>
+                {{ form.review }}
+                {% if form.review.errors %}
+                    <div class="text-danger">
+                        {{ form.review.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить фильм</button>
+        </form>
+        <p class="text-danger">{{error}}</p>
+    </div>
+{% endblock %}

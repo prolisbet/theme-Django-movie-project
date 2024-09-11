@@ -1,0 +1,49 @@
+{% load static %}
+<! doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    {% block title %}
+    {% endblock %}
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .container, footer {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        a {
+            color: #bb86fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <aside class="col-md-3 mb-4">
+                <img src="{% static 'films/img/kino1.jpg' %}" alt="films" class="img-fluid rounded mb-3">
+                <span class="h4">{{ caption }}</span>
+                {% include 'films/nav.html'%}
+            </aside>
+            <main class="col-md-9">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    <footer class="text-center mt-4">
+        {% include 'films/footer.html'%}
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

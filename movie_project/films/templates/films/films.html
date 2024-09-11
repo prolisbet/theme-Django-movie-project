@@ -1,0 +1,25 @@
+{% extends 'films/layout.html' %}
+
+{% block title %}
+    <title>Фильмы</title>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ caption }}</h1>
+    <h5> — то, что выбираете вы!</h5>
+    <hr class="bg-light">
+    {% if film_posts %}
+        {% for film_post in film_posts %}
+            <div class="card mb-3 text-dark">
+                <div class="card-body">
+                    <h3 class="card-title"> {{ film_post.title }} </h3>
+                    <p class="card-text"> {{ film_post.description }} </p>
+                    <p class="card-text"> {{ film_post.review }} </p>
+                    <p class="card-text"><small class="text-muted"> {{ film_post.pub_date }} </small></p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h4 class="text-warning">Фильмов еще не завезли...</h4>
+    {% endif %}
+{% endblock %}
