@@ -13,7 +13,7 @@
         <form method="post" class="form">
             {% csrf_token %}
             <div class="form-group">
-                <label for="{{ form.title.id_for_label }}">Название</label>
+                <label for="{{ form.title.id }}">Название</label>
                 {{ form.title }}
                 {% if form.title.errors %}
                     <div class="text-danger">
@@ -22,7 +22,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.description.id_for_label }}">Описание</label>
+                <label for="{{ form.description.id }}">Описание</label>
                 {{ form.description }}
                 {% if form.description.errors %}
                     <div class="text-danger">
@@ -31,7 +31,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="{{ form.review.id_for_label }}">Отзыв</label>
+                <label for="{{ form.review.id }}">Отзыв</label>
                 {{ form.review }}
                 {% if form.review.errors %}
                     <div class="text-danger">

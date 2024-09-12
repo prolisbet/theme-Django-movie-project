@@ -10,14 +10,17 @@ class FilmPostForm(ModelForm):
         widgets = {
             "title": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Название фильма'
+                'placeholder': 'Название фильма',
+                'id': 'id_title'
             }),
             "description": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Описание фильма'
+                'placeholder': 'Описание фильма',
+                'id': 'id_description'
             }),
             "review": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Отзыв'
+                'placeholder': 'Отзыв',
+                'id': 'id_review'
             })
         }
